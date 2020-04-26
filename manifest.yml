@@ -1,0 +1,3 @@
+applications:
+- name: AppIDEWC-node-f855a681-d224-4d40-821a-cb85ce44a0cb
+  memory: 256M

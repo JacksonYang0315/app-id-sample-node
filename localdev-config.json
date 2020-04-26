@@ -1,7 +1,8 @@
 {
-  "clientId": "<Client Id>",
-  "oauthServerUrl": "<OAuth Server URL>",
-  "profilesUrl": "<Profiles URL>",
-  "secret": "<Client Secret>",
-  "tenantId": "<Tenant Id>"
+  "clientId": "c9dd3f6c-5671-4339-a2ec-8d59b0836cfa",
+  "oauthServerUrl": "https://jp-tok.appid.cloud.ibm.com/oauth/v4/f855a681-d224-4d40-821a-cb85ce44a0cb",
+  "profilesUrl": "https://jp-tok.appid.cloud.ibm.com",
+  "secret": "ZmU4OTRhNjAtZWM0Ny00MDJlLThjYTQtN2EyNjI3NzE4ZWQ1",
+  "tenantId": "f855a681-d224-4d40-821a-cb85ce44a0cb",
+  "redirectUri": "http://localhost:3000/ibm/cloud/appid/callback"
 }

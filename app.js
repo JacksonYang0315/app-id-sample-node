@@ -15,8 +15,11 @@ const express = require("express");
 const session = require("express-session");
 const passport = require("passport");
 const appID = require("ibmcloud-appid");
+const userProfileManager = require("ibmcloud-appid").UserProfileManager;
+userProfileManager.init(getAppIDConfig());
 
 const WebAppStrategy = appID.WebAppStrategy;
+
 
 const app = express();
 
@@ -41,6 +44,7 @@ app.use(passport.session());
 
 let webAppStrategy = new WebAppStrategy(getAppIDConfig());
 passport.use(webAppStrategy);
+
 
 // Configure passportjs with user serialization/deserialization. This is required
 // for authenticated session persistence accross HTTP requests. See passportjs docs
@@ -71,6 +75,10 @@ app.get("/logout", (req, res) => {
 
 //Serves the identity token payload
 app.get("/protected/api/idPayload", (req, res) => {
+	var accessToken = req.session[WebAppStrategy.AUTH_CONTEXT].accessToken
+	userProfileManager.getUserInfo(accessToken).then(function (userInfo) {
+		console.log(userInfo.identities[0].idpUserInfo)
+		});
 	res.send(req.session[WebAppStrategy.AUTH_CONTEXT].identityTokenPayload);
 });
 
